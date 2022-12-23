@@ -10,9 +10,9 @@ public class ScenarioManager : SingletonMonoBehaviour<ScenarioManager>
     [SerializeField] GameObject MessageWindow;
     MessageManager messageManager;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        delimiter = "@br\n";
+        delimiter = "\n\n";
         messageManager = MessageWindow.GetComponent<MessageManager>();
     }
 
@@ -31,5 +31,9 @@ public class ScenarioManager : SingletonMonoBehaviour<ScenarioManager>
         scenarios = scenarioText.text.Split(delimiter);
         messageManager.ActivateMessagePanel(scenarios);
         messageManager.NextLine();
+    }
+
+    public bool IsScenarioFinished(){
+        return messageManager.isMessageFinished;
     }
 }

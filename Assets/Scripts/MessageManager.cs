@@ -9,10 +9,12 @@ public class MessageManager : SingletonMonoBehaviour<MessageManager>
     private string scenarioText;
     private string[] lines;
     int currentLine;
+    public bool isMessageFinished;
     // Start is called before the first frame update
     void Start()
     {
         currentLine = 0;
+        isMessageFinished = false;
     }
 
     // Update is called once per frame
@@ -29,11 +31,13 @@ public class MessageManager : SingletonMonoBehaviour<MessageManager>
         lines = message;
         this.gameObject.SetActive(true);
         currentLine = 0;
+        isMessageFinished = false;
     }
 
     public void NextLine(){
         if(currentLine >= lines.Length){
             this.gameObject.SetActive(false);
+            isMessageFinished = true;
             return;
         }
         messageText.text = lines[currentLine];
