@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7903ccecdcc474e28bc4bb45c4d7902d
+guid: 3436b6e06276a4775afefbc5a1cce7ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,9 +67,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,22 +116,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: life_meter_0
+      name: stage2_map_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 1413
-        height: 256
+        x: 13
+        y: 544
+        width: 468
+        height: 468
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7220ed8e10e24e179749e5ebf08d820
-      internalID: 339198946
+      spriteID: dcc773cf2a1234b4cb8f36ba7b091dce
+      internalID: 1279933536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_map_1
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 544
+        width: 450
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44797d578f2904724a1b1a8349e7af3e
+      internalID: 1495385548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_map_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 13
+        width: 459
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31520a9995e16440ca0b258ddf73a729
+      internalID: 2145884495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_map_3
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 13
+        width: 450
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41dae874a1fb342a2ba7a3298d5010b1
+      internalID: -1312730500
       vertices: []
       indices: 
       edges: []
@@ -147,7 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      life_meter_0: 339198946
+      stage2_map_1: 1495385548
+      stage2_map_2: 2145884495
+      stage2_map_3: -1312730500
+      stage2_map_0: 1279933536
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
