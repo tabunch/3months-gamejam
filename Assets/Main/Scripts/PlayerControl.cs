@@ -10,7 +10,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float jumpForce;
     Vector2 velocityVector;
     [SerializeField] float runVelocity;
+    [SerializeField] Animator animator;
     private KeyCode jumpKey, leftMoveKey, rightMoveKey;
+    private Vector3 scale;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,9 @@ public class PlayerControl : MonoBehaviour
         footScript = foot.GetComponent<Foot>();
         velocityVector = new Vector2(0,0);
         jumpKey = KeyCode.Space;
-        leftMoveKey = KeyCode.RightArrow;
-        rightMoveKey = KeyCode.LeftArrow;
+        leftMoveKey = KeyCode.LeftArrow;
+        rightMoveKey = KeyCode.RightArrow;
+        scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -33,12 +36,29 @@ public class PlayerControl : MonoBehaviour
 
         if(Input.GetKey(rightMoveKey)){
             Run(runVelocity);
+            scale.x = 1;
+            transform.localScale = scale;
+            if(footScript.isGrounded){
+                animator.SetBool("IsMoving", true);
+            }
+            else{
+                animator.SetBool("IsMoving", false);
+            }
         }
         else if(Input.GetKey(leftMoveKey)){
             Run(-runVelocity);
+            scale.x = -1;
+            transform.localScale = scale;
+            if(footScript.isGrounded){
+                animator.SetBool("IsMoving", true);
+            }
+            else{
+                animator.SetBool("IsMoving", false);
+            }
         }
         else{
             Run(0);
+            animator.SetBool("IsMoving", false);
         }
     }
 
