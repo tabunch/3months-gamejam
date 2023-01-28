@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenarioManager: {fileID: 1779923011}
   scenarioFile: {fileID: 4900000, guid: a903817051c714ac2b3fec544d583c64, type: 3}
+  stage1Exit: {fileID: 0}
 --- !u!1 &1470860262
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScenarioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5125024552874346260, guid: 65040218236ea45db90ab6ba16ac4654, type: 3}
+      propertyPath: scenarioText
+      value: 
+      objectReference: {fileID: 4900000, guid: a903817051c714ac2b3fec544d583c64, type: 3}
     - target: {fileID: 5125024552874346260, guid: 65040218236ea45db90ab6ba16ac4654, type: 3}
       propertyPath: MessageWindow
       value: 

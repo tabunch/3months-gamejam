@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneController : SingletonMonoBehaviour<SceneController>
 {
     [SerializeField] GameObject scenarioManager;
     private ScenarioManager c_scenarioManager;
     private string currentSceneName;
-    [SerializeField] TextAsset scenarioFile;
+    private string loadScene;
+    private Color fadeColor;
+    private float fadeSpeed;
+    [SerializeField] GameObject stage1Exit;
+    CollisionTag collisionTag;
     private void Awake() {
         c_scenarioManager = scenarioManager.GetComponent<ScenarioManager>();
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         currentSceneName = "";
+        fadeColor = Color.black;
+        fadeSpeed = 1.0f;
     }
     // Start is called before the first frame update
     void Start()
@@ -29,7 +35,8 @@ public class SceneController : MonoBehaviour
         {
             case "Opening":
                 if(c_scenarioManager.IsScenarioFinished()){
-                    SceneManager.LoadScene("Stage1", LoadSceneMode.Single);
+                    //SceneManager.LoadScene("Stage1", LoadSceneMode.Single);
+                    Initiate.Fade("Stage1", fadeColor, fadeSpeed);
                 }
                 break;
         }
@@ -41,11 +48,6 @@ public class SceneController : MonoBehaviour
         {
             case "Opening":
                 c_scenarioManager.LoadScenarioFile("opening");
-                /*
-                while(!c_scenarioManager.IsScenarioFinished()){
-                    new WaitForSeconds(0.1f);
-                }
-                */
                 break;
         }
     }

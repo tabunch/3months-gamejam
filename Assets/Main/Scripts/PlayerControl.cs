@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     [SerializeField] GameObject foot;
-    Foot footScript;
+    CollisionTag collisionTag;
     [SerializeField] float jumpForce;
     Vector2 velocityVector;
     [SerializeField] float runVelocity;
@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        footScript = foot.GetComponent<Foot>();
+        collisionTag = foot.GetComponent<CollisionTag>();
         velocityVector = new Vector2(0,0);
         jumpKey = KeyCode.Space;
         leftMoveKey = KeyCode.LeftArrow;
@@ -29,16 +29,16 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(jumpKey) && footScript.isGrounded){
+        if(Input.GetKey(jumpKey) && collisionTag.isTouched){
             rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            footScript.isGrounded = false;
+            collisionTag.isTouched = false;
         }
 
         if(Input.GetKey(rightMoveKey)){
             Run(runVelocity);
             scale.x = 1;
             transform.localScale = scale;
-            if(footScript.isGrounded){
+            if(collisionTag.isTouched){
                 animator.SetBool("IsMoving", true);
             }
             else{
@@ -49,7 +49,7 @@ public class PlayerControl : MonoBehaviour
             Run(-runVelocity);
             scale.x = -1;
             transform.localScale = scale;
-            if(footScript.isGrounded){
+            if(collisionTag.isTouched){
                 animator.SetBool("IsMoving", true);
             }
             else{

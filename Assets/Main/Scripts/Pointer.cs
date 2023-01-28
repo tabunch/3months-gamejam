@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class Pointer : MonoBehaviour
     private Color defaultColor;
     private SpriteRenderer targetSprite;
     private bool isMouseOvered;
+    private Regex regex;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class Pointer : MonoBehaviour
         selectedColor = new Color(255.0f/255.0f, 255.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
         defaultColor = new Color(255.0f/255.0f, 255.0f/255.0f, 255.0f/255.0f, 255.0f/255.0f);
         isMouseOvered = false;
+        regex = new Regex("Copyable");
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class Pointer : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Copyable")){
+        if(regex.IsMatch(other.gameObject.tag)){
             target = other.gameObject;
             targetSprite = target.GetComponent<SpriteRenderer>();
             targetSprite.color = selectedColor;
